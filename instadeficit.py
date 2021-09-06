@@ -22,6 +22,7 @@ for followee in followees:
     for follower in followers:
         if (follower == followee):
             found = True
+            break
     if (found == False):
         unfollower = str(followee)
         unfollower = unfollower[9 : unfollower.rfind('(') - 1]
