@@ -9,7 +9,7 @@ Dependencies
 
 Warnings
 --------
-For private accounts, this script will ask you to input your password. This repository is completely open-source, and you can rest assured that this script does not store your password locally. All passwords are inputted via the 'getpass' library, and are encrypted and hashed. 
+For private accounts, this script will ask you to input your password. This repository is completely open-source, and this script does not store your password locally. All passwords are inputted via the 'getpass' library, and are encrypted and hashed. 
 
 Likewise, the 'instaloader' library that this script uses is [open-source](https://github.com/instaloader/instaloader "https://github.com/instaloader/instaloader"). Feel free to check out its source code to assuage any privacy concerns you may have.
 
