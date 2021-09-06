@@ -26,4 +26,4 @@ Execute the instadeficit.py file. Input your username (and for private accounts,
 ### Replit ###
 Copy-paste the script's source code, and then run it.
 
-Instagram may occasionally block log-ins via Replit. This error is flagged in the terminal as "Login: Checkpoint required. Point your browser to <some link>, follow the instructions, then retry." To fix this problem, log in to Instagram normally via your browser, authorize the log-in activity, and then re-run the script.
+Instagram may occasionally block log-ins via Replit. This error is flagged in the terminal as "Login: Checkpoint required. Point your browser to https://instagram.com, follow the instructions, then retry." To fix this problem, log in to Instagram normally via your browser, authorize the log-in activity, and then re-run the script.
