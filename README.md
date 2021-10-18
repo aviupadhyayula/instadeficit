@@ -1,4 +1,4 @@
-Instadeficit.py
+Instadeficit
 ===============
 A Python script that identifies Instagram accounts you follow that don't follow you back. Uses Instaloader (a Python API for Instagram) to scrape inputted accounts' followers and followees; then finds deltas between the two lists.
 
