@@ -50,8 +50,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-if __name__ == "__main__":
-    get_lists(sign_in())
-    find_deltas()
-    display_deltas()
