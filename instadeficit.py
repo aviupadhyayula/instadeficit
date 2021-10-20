@@ -1,33 +1,57 @@
 import instaloader
 import getpass
 
-# getting user input
-username = input("Username: ")
-# logs in to instaloader session
-L = instaloader.Instaloader()
-# password is gotten via getpass; it's not locally stored, cannot be read, and is hashed
-L.login(username, getpass.getpass(prompt="Password: "))
-profile = instaloader.Profile.from_username(L.context, username)
-# scrapes followers and followees
-followers = []
-followees = []
-for follower in profile.get_followers():
-    followers.append(follower)
-for followee in profile.get_followees():
-    followees.append(followee)
-# catalogs followees who do not appear in list of followers
-unfollowers = []
-for followee in followees:
-    found = False
-    for follower in followers:
-        if (follower == followee):
-            found = True
-            break
-    if (found == False):
-        unfollower = str(followee)
-        unfollower = unfollower[9 : unfollower.rfind('(') - 1]
-        unfollowers.append(unfollower)
-# displays list of unfollowers
-print("People to unfollow:")
-for unfollower in unfollowers:
-    print("  - " + unfollower)
+def sign_in():
+    global username
+    username = input("Username: ")
+    L = instaloader.Instaloader()
+    L.login(username, getpass.getpass(prompt="Password: "))
+    return L
+
+def get_lists(L):
+    profile = instaloader.Profile.from_username(L.context, username)
+    global followers
+    followers = []
+    global followees 
+    followees = []
+    for follower in profile.get_followers():
+        followers.append(follower)
+    for followee in profile.get_followees():
+        followees.append(followee)
+
+def find_deltas():
+    global unfollowers
+    unfollowers = []
+    for followee in followees:
+        found = False
+        for follower in followers:
+            if follower == followee:
+                found = True
+                break
+        if found == False:
+            unfollower = format_name(followee)
+            unfollowers.append(unfollower)
+
+def display_deltas():
+    print("People to unfollow:")
+    for unfollower in unfollowers:
+        print(" - " + unfollower)
+
+
+def format_name(profile):
+    name = str(profile)
+    name = name[9 : name.index('(') - 1]
+    return name
+
+def main():
+    get_lists(sign_in())
+    find_deltas()
+    display_deltas()
+
+if __name__ == "__main__":
+    main()
+
+if __name__ == "__main__":
+    get_lists(sign_in())
+    find_deltas()
+    display_deltas()
